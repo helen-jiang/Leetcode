@@ -1,5 +1,5 @@
 /**
- * https://leetcode.com/problems/divide-two-integers/
+ * http://leetcode.com/problems/divide-two-integers/
  */
 package problems;
 

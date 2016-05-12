@@ -1,5 +1,5 @@
 /**
- * https://leetcode.com/problems/lru-cache/
+ * http://leetcode.com/problems/lru-cache/
  */
 package problems;
 
@@ -12,23 +12,23 @@ import java.util.Map;
  */
 public class P146_LRUCache {
 	
-	private class DoubleLinkedNode{
+	protected class DoubleLinkedNode{
 		
-		private int val;
-		private int key;
-		private DoubleLinkedNode pre;
-		private DoubleLinkedNode next;
+		protected int val;
+		protected int key;
+		protected DoubleLinkedNode pre;
+		protected DoubleLinkedNode next;
 		
-		public DoubleLinkedNode(int x, int y){
+		protected DoubleLinkedNode(int x, int y){
 			this.val = x;
 			this.key = y;
 		}
 	}
 		
-		private Map<Integer, DoubleLinkedNode> map;
-		private DoubleLinkedNode head;
-		private DoubleLinkedNode tail;
-		private int capacity;
+	private Map<Integer, DoubleLinkedNode> map;
+	private DoubleLinkedNode head;
+	private DoubleLinkedNode tail;
+	private int capacity;
 	    
     public P146_LRUCache(int capacity) {
     	this.map = new HashMap<Integer, DoubleLinkedNode>();

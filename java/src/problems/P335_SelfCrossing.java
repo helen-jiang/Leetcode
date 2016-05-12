@@ -1,5 +1,5 @@
 /**
- * https://leetcode.com/problems/self-crossing/
+ * http://leetcode.com/problems/self-crossing/
  */
 package problems;
 
