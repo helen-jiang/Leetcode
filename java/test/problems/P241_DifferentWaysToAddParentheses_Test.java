@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 import org.junit.Test;
@@ -26,8 +27,8 @@ public class P241_DifferentWaysToAddParentheses_Test {
 	@Parameters(name = "P241_DifferentWaysToAddParentheses_TC_{index}")
 	public static Collection<Object[]> data(){
 		return Arrays.asList(new Object[][]{
-				{"2-1-1", new Integer[]{0,2}},
-				{"2*3-4*5", new Integer[]{-34, -14, -10, -10, 10}}
+				{"2-1-1", Arrays.asList(0,2)},
+				{"2*3-4*5", Arrays.asList(-34, -14, -10, -10, 10)}
 		});
 	}
 	
@@ -35,14 +36,21 @@ public class P241_DifferentWaysToAddParentheses_Test {
 	public String input;
 	
 	@Parameter(value=1)
-	public Integer[] expected;
+	public List<Integer> expected;
 	
 	@Test
 	public void test() {
 		List<Integer> res = P241_DifferentWaysToAddParentheses.diffWaysToCompute(input);
-		Integer[] resArray = res.toArray(new Integer[res.size()]);
-		Arrays.sort(resArray);
-		assertArrayEquals(expected, resArray);
+		res.sort(new Comparator<Integer>(){
+
+			@Override
+			public int compare(Integer i, Integer j) {
+				// TODO Auto-generated method stub
+				return i.compareTo(j);
+			}
+			
+		});
+		assertEquals(expected, res);
 	}
 
 }

@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,25 +20,27 @@ import org.junit.runners.Parameterized.Parameters;
  */
 
 @RunWith(Parameterized.class)
-public class P187_RepeatedDNASequences_Test {
+public class P179_LargestNumber_Test {
 
-	@Parameters(name = "P187_RepeatedDNASequences_TC_{index}")
+	@Parameters(name = "P179_LargestNumber_TC_{index}")
 	public static Collection<Object[]> data(){
 		return Arrays.asList(new Object[][]{
-				{"AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT", Arrays.asList("AAAAACCCCC", "CCCCCAAAAA")},
-				{"AAAAAAAAAAA", Arrays.asList("AAAAAAAAAA")},
+				{new int[]{3, 30, 34, 5, 9}, "9534330"},
+				{new int[]{3, 30, 312, 34, 5, 9}, "9534331230"},
+				{new int[]{121,12}, "12121"},
+				{new int[]{0,0}, "0"}
 		});
 	}
 	
 	@Parameter(value=0)
-	public String s;
+	public int[] nums;
 	
 	@Parameter(value=1)
-	public List<String> expected;
+	public String expected;
 	
 	@Test
 	public void test() {
-		assertEquals(expected, P187_RepeatedDNASequences.findRepeatedDnaSequences(s));
+		assertEquals(expected, P179_LargestNumber.largestNumber(nums));
 	}
 
 }

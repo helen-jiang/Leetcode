@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,31 +20,26 @@ import org.junit.runners.Parameterized.Parameters;
  */
 
 @RunWith(Parameterized.class)
-public class P282_ExpressionAddOperators_Test {
+public class P200_NumberOfIslands_Test {
 	
-	@Parameters(name = "P282_ExpressionAddOperators_TC_{index}")
+	@Parameters(name = "P200_NumberOfIslands_TC_{index}")
 	public static Collection<Object[]> data(){
 		return Arrays.asList(new Object[][]{
-				{"123", 6, Arrays.asList("1+2+3", "1*2*3")},
-				{"232", 8, Arrays.asList("2*3+2", "2+3*2")},
-				{"105", 5, Arrays.asList("1*0+5","10-5")},
-				{"00", 0, Arrays.asList("0+0", "0-0", "0*0")},
-				{"3456237490", 9191, Arrays.asList()},
+				{new char[][]{{'1','1','1','1','0'}, {'1','1','0','1','0'}, {'1','1','0','0','0'}, {'0','0','0','0','0'}}, 1},
+				{new char[][]{{'1','1','0','0','0'}, {'1','1','0','0','0'}, {'0','0','1','0','0'}, {'0','0','0','1','1'}}, 3},
+				{new char[][]{{'1','0','1','0','0'}, {'1','0','0','0','0'}, {'1','1','1','1','0'}, {'0','0','0','0','1'}}, 3}
 		});
 	}
 	
 	@Parameter(value=0)
-	public String num;
+	public static char[][] grid;
 	
 	@Parameter(value=1)
-	public int target;
-	
-	@Parameter(value=2)
-	public List<String> expected;
+	public int expected;
 
 	@Test
 	public void test() {
-		assertEquals(expected, P282_ExpressionAddOperators.addOperators(num, target));
+		assertEquals(expected, P200_NumberOfIslands.numIslands(grid));
 	}
 
 }

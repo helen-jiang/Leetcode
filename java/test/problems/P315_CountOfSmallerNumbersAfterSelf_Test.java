@@ -21,25 +21,24 @@ import org.junit.runners.Parameterized.Parameters;
  */
 
 @RunWith(Parameterized.class)
-public class P187_RepeatedDNASequences_Test {
-
-	@Parameters(name = "P187_RepeatedDNASequences_TC_{index}")
+public class P315_CountOfSmallerNumbersAfterSelf_Test {
+	
+	@Parameters(name = "P315_CountOfSmallerNumbersAfterSelf_TC_{index}")
 	public static Collection<Object[]> data(){
 		return Arrays.asList(new Object[][]{
-				{"AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT", Arrays.asList("AAAAACCCCC", "CCCCCAAAAA")},
-				{"AAAAAAAAAAA", Arrays.asList("AAAAAAAAAA")},
+				{new int[]{5, 2, 6, 1}, Arrays.asList(2, 1, 1, 0)}
 		});
 	}
 	
 	@Parameter(value=0)
-	public String s;
+	public static int[] nums;
 	
 	@Parameter(value=1)
-	public List<String> expected;
-	
+	public static List<Integer> expected;
+
 	@Test
 	public void test() {
-		assertEquals(expected, P187_RepeatedDNASequences.findRepeatedDnaSequences(s));
+		assertEquals(expected, P315_CountOfSmallerNumbersAfterSelf.countSmaller(nums));
 	}
 
 }
